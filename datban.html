@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee - BREW</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div id="menu-btn" class="fas fa-bars"></div>
+      <a href="trangchu.html" class="logo">coffee BREW<i class="fas fa-mug-hot"></i></a>
+
+      <nav class="navbar">
+        <a href="trangchu.html">Trang Chủ</a>
+      </nav>
+
+      <a href="#book" class="btn">Đặt Bàn</a>
+    </header>
+    <section
+      class="book"
+      id="book"
+      style="
+        background-position: center;
+        background-size: cover;
+        padding: 120px;
+      "
+    >
+      <h1 class="heading">Đặt trước <span>ĐẶT BÀN</span></h1>
+
+      <form onsubmit="return validateForm()">
+        <input type="text" placeholder="Tên" class="box" id="name" />
+        <input type="email" placeholder="Email" class="box" id="email" />
+        <input type="number" placeholder="Số Điện Thoại" class="box" id="phone" />
+        <textarea
+          name=""
+          placeholder="Tin nhắn"
+          class="box"
+          id="message"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <input type="submit" value="Gửi Tin Nhắn" class="btn" />
+      </form>
+    </section>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+
+            if (name === "" || email === "" || phone === "") {
+                alert("Vui lòng nhập đủ thông tin: Tên, Email, Số điện thoại");
+                return false; // Ngăn chặn form submit nếu có lỗi
+            } else {
+                alert("Đặt bàn đã được gửi thành công!");
+                return true; // Cho phép form submit khi thông tin đầy đủ
+            }
+        }
+    </script>
+
+    <section class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>Chi Nhánh Của Chúng Tôi</h3>
+          <a
+            href="https://www.google.com/maps/place/160%2F36+P.+H%C3%A0o+Nam,+T%E1%BB%95+D%C3%A2n+Ph%E1%BB%91+28,+%C4%90%E1%BB%91ng+%C4%90a,+H%C3%A0+N%E1%BB%99i/@21.0257333,105.8286456,881m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3135ab761935e657:0x8fbd39f50b7dad50!8m2!3d21.0257333!4d105.8286456!16s%2Fg%2F11jzpjsrtr?hl=vi-VN&entry=ttu"
+            ><i class="fas fa-arrow-right"></i> 36 P. Hào Nam, Chợ Dừa, Đống Đa,
+            Hà Nội 11511</a
+          >
+          <a
+            href="https://www.google.com/maps/place/45A+Th%E1%BA%A3o+Nguy%C3%AAn,+Khu+%C4%91%C3%B4+th%E1%BB%8B+Ecopark,+V%C4%83n+Giang,+H%C6%B0ng+Y%C3%AAn/@20.9535251,105.9425978,881m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3135af0a6918532f:0xaf1140c1a771e983!8m2!3d20.9535251!4d105.9425978!16s%2Fg%2F11rzjj2vc6?hl=vi-VN&entry=ttu"
+            ><i class="fas fa-arrow-right"></i> 45A Thảo Nguyên, Khu đô thị
+            Ecopark, Văn Giang, Hưng Yên</a
+          >
+        </div>
+        <div class="box">
+          <h3>Thông Tin Liên Lạc</h3>
+          <a href="#"><i class="fas fa-phone"></i> 0362671904</a>
+          <a href="#"><i class="fas fa-envelope"></i> anhquyendo09@gmail.com</a>
+          <a href="#"><i class="fas fa-envelope"></i> Hà Nội, Việt Nam</a>
+        </div>
+
+        <div class="box">
+          <h3>Thông Tin Liên Lạc</h3>
+          <a href="https://www.facebook.com/profile.php?id=100040084459911"
+            ><i class="fab fa-facebook-f"></i> facebook</a
+          >
+          <a href="https://www.instagram.com/doanh.quyen/"
+            ><i class="fab fa-instagram"></i> instagram</a
+          >
+        </div>
+      </div>
+
+      <div class="credit">
+        Được tạo bởi <span>BREW</span> thiết kế bởi Quyên, Thảo, Ngọc
+      </div>
+    </section>
+
+    <!-- SWIPER -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- Custom JS File Link  -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

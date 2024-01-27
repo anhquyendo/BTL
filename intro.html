@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Giới thiệu thành viên - Nhóm 5</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .members {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 40vw;
+    text-align: center;
+  
+  }
+  
+  .container {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    /* background: linear-gradient(#FF6347,	#FF8C00); */
+    background: linear-gradient(rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+    transition: 0.3s;
+    overflow: hidden;
+    position: relative;
+    margin: 0 20px;
+  }
+  
+  .container:hover {
+    width: 350px;
+    height: 450px;
+    border-radius: 10px;
+    /* background: linear-gradient(#FF6347,	#FF8C00); */
+    background: linear-gradient(rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+  }
+  
+  .container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    margin: 20px auto;
+    cursor: pointer;
+    /* position: relative; */
+    transition: 0.3s;
+  }
+  
+  .container img:active {
+    width: 350px;
+    height: 450px;
+    margin: 0;
+    border: 5px solid #ffffff;
+    border-radius: 10px;
+  }
+  
+  .container h2 {
+    color: #ffffff;
+  
+  }
+  
+  .container p {
+    color: #ffffff;
+    margin: 0 40px 12px;
+  }
+  
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px 12px;
+  }
+  
+  .btn-container button {
+    height: 30px;
+    width: 150px;
+    border: none;
+    margin-right: 12px;
+    border-radius: 5px;
+    columns: #333333;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn-container button:hover {
+    transform: scale(0.95);
+  
+  }
+  
+  .icon {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-60px);
+    opacity: 0;
+    transition: 0.8s;
+    transition-delay: 0.3s;
+    top: 12px;
+  
+  }
+  
+  .icon i:hover {
+    transform: scale(0.95);
+  
+  }
+  
+  .container:hover .icon {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  
+  .icon i {
+    padding: 12px;
+    color: #82AAE3;
+    background: #FFF;
+    border-radius: 50%;
+    margin: 5px 0 0 12px;
+  }
+  
+  
+  /* INTRODUCTION */
+  
+  /* Custom scrollbar */
+  *::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 172, 193, 1);
+    outline: 1px solid rgba(84, 58, 183, 1);
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: rgba(249, 248, 244, 0.4);
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgb(4, 117, 210);
+  }
+  
+  /* Header */
+  @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+  
+  h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 36px;
+  }
+  
+  p,
+  ol,
+  li {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #333333;
+  }
+  
+  .header {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+    color: white;
+  }
+  
+  .logo {
+    width: 50px;
+    fill: white;
+    padding-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .inner-header {
+    height: 65vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .flex {
+    /*Flexbox for containers*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+  }
+  
+  .content {
+    position: relative;
+    height: 20vh;
+    text-align: center;
+    background-color: white;
+  }
+  
+  /* Animation */
+  
+  .parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+  }
+  
+  .parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+  
+  .parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+  
+  .parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+  
+  .parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+  
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+  
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
+  
+  /* Btn */
+  a {
+    text-decoration: none;
+  }
+  
+  .btn-header {
+    position: absolute;
+    z-index: 501;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 70px;
+  }
+  
+  .btn {
+    font-size: 1.5625rem;
+    padding: 0.2rem 1rem;
+    box-shadow: 1px 1px 20px 2px rgb(0 0 0 / 70%);
+    background-color: rgba(0, 172, 193, 1);
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f9f9f9;
+    transition: all 1000ms;
+    overflow: hidden;
+    outline: 2px solid #cfc1c0;
+    margin: 50px;
+  }
+  
+  .btn:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+    outline: 2px solid rgba(0, 172, 193, 1);
+  }
+  
+  .btn::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(84, 58, 183, 1);
+    transform: skewX(45deg);
+    z-index: -1;
+    transition: width 1000ms;
+  }
+  
+  .btn:hover::before {
+    width: 250%;
+  }
+  
+  /* Main */
+  .main {
+    margin-top: 200px;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  #intro-members,
+  #intro-project {
+    position: relative;
+    left: 10%;
+    text-align: center;
+    padding: 10px;
+    width: 80%;
+    background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+    color: #ffffff;
+    border-radius: 5px;
+  }
+  
+  .project-info {
+    width: 80%;
+    position: relative;
+    left: 10%;
+    text-align: center;
+  }
+  
+  main .project-info h2 {
+    margin-top: 40px;
+  }
+  
+  
+  .more-info {
+    margin: 30px 0 0 0;
+  }
+  
+  .heading2{
+    padding: 10px 20px;
+    width: 20%;
+    border-radius: 5px 5px 0 0 ;
+    background-color: aqua;
+    margin-bottom: 0;
+    position: relative;
+    left: 10%;
+  }
+  
+  .table .row {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+  }
+  
+  .ball {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin: 0 auto;
+  }
+  
+  .line {
+    height: 1px;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.00) 0%, #000000 50%, rgba(0, 0, 0, 0.00) 100%);
+    opacity: .1;
+    width: 100%;
+  }
+  
+  .hex-color,
+  .rgb-color {
+    border: 0;
+    height: auto;
+    padding: 6px 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+  
+  .rgb-color {
+    font-size: 11px;
+  }
+  
+  .h2-more-infor{
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: aqua;
+    position: relative;
+    left: 10px;
+  }
+  
+  /* footer */
+  footer {
+    background-color: #82AAE3;
+    color: white;
+  }
+  .footer-nav{
+    display: flex;
+    width: 1400px;
+    margin: auto;
+  }
+  .footer-div{
+    align-items: center;
+    width: 25%;
+  }
+  .contact{
+    text-align: center;
+  
+  }
+  .fa-brands{
+    font-size: 30px;
+    color: white;
+    margin: 10px 5px 0 5px;
+    display: inline-block;
+  }
+  .fa-brands:hover{
+    transition: 500ms;
+    transform: scale(1.5);
+  }
+  .btn-methods{
+    font-size: 50px;
+    color: white;
+    margin: 10px 5px 20px 5px;
+    display: inline-block;
+  }
+  .btn-methods:hover{
+    transition: 500ms;
+    transform: scale(1.5);
+  }
+  .footer-div>h3{
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+  .footer-div>h3::after {
+    display: block;
+    position: relative;
+    content: "";
+    background-color: #91D8E4;
+    left: 0;
+    right: 0;
+    width: 15%;
+    min-width: 10px;
+    height: 3px;
+  }
+  .aboutUs>div{
+    margin-bottom: 10px;
+  }
+  .infor>div{
+    margin-bottom: 10px;
+  }
+  .f-end{
+    width: 100%;
+    height: 120px;
+    background-color: #EAFDFC;
+    margin-top: 50px;
+  }
+  .div-end>p{
+    text-align: center;
+    margin: 10px 5px;
+  }
+  
+  .fas {
+    color: #91D8E4;
+    font-size: 20px;
+  }
+  
+  
+    </style>
+    <link rel="shortcut icon" href="style1.css" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/02c0e39c7a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <div class="inner-header flex">
+                <img style="width: 200px;" src="image/cafe.jpg" alt="logo">
+                <h1>GIỚI THIỆU THÀNH VIÊN THIẾT KẾ WEB - NHÓM 5</h1>
+                <div class="btn-header">
+                    <a href="#intro-members">
+                        <button class="btn" type="button">
+                            Thành Viên Nhóm
+                        </button>
+                    </a>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                    </g>
+                </svg>
+            </div>
+
+        </div>
+    </header>
+
+
+    <main class="main">
+        <article class="home">
+            <div id="intro-members">
+                <h1>
+                    THÀNH VIÊN NHÓM
+                </h1>
+            </div>
+            <section class="members">
+                <div class="container">
+                    <div class="icon">
+                        <a href="https://www.facebook.com/ngocngoch.05"><i class="fab fa-facebook"></i></a>
+                    </div>
+                    <img src="image/dothingoc.jpg" alt="Đỗ Thị Ngọc">
+                    <h2>Đỗ Thị Ngọc</h2>
+                    <p>Thái Bình, Việt Nam</p>
+                    <p>Sinh viên đại học Công Nghệ Đông Á</p>
+                    <p>Chuyên Ngành: Công Nghệ Thông Tin</p>
+                    <p>Khóa: 14 | MSSV: 20231122</p>
+                    <div class="btn-container">
+                        <a href="https://www.facebook.com/ngocngoch.05"><button>Liên Hệ</button></a>
+                        <a href="https://www.facebook.com/ngocngoch.05"><button>Kết Bạn</button></a>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="container">
+                    <div class="icon">
+                        <a href="https://www.facebook.com/profile.php?id=100040084459911"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/doanh.quyen"> <i class="fab fa-instagram"></i></a>
+                    </div>
+                    <img src="image/doanhquyen.jpg" alt="Đỗ Ánh Quyên">
+                    <h2>Đỗ Ánh Quyên</h2>
+                    <p>Hà Nội, Việt Nam</p>
+                    <p>Sinh viên đại học Công Nghệ Đông Á</p>
+                    <p>Chuyên Ngành: Công Nghệ Thông Tin</p>
+                    <p>Khóa: 14 | MSSV: 20231489</p>
+                    <div class="btn-container">
+                        <a href="https://www.facebook.com/profile.php?id=100040084459911"><button>Liên Hệ</button></a>
+                        <a href="https://www.facebook.com/profile.php?id=100040084459911"><button>Kết Bạn</button></a>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="container">
+                    <div class="icon">
+                        <a href="https://www.facebook.com/thao04091m7"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/_fthzao05_"> <i class="fab fa-instagram"></i></a>
+                    </div>
+                    <img src="image/lethithao.jpg" alt="Lê Thị Thảo">
+                    <h2>Lê Thị Thảo</h2>
+                    <p>Thanh Hóa, Việt Nam</p>
+                    <p>Sinh viên đại học Công Nghệ Đông Á</p>
+                    <p>Chuyên Ngành: Công Nghệ Thông Tin</p>
+                    <p>Khóa: 14 | MSSV: 20230843</p>
+                    <div class="btn-container">
+                        <a href="https://www.facebook.com/thao04091m7"><button>Liên Hệ</button></a>
+                        <a href="https://www.facebook.com/thao04091m7"><button>Kết Bạn</button></a>
+                    </div>
+                </div>
+
+            </section>
+
+</body>
+<script>
+    const imgB = document.querySelector('.container img')
+    imgB.addEventListener('click', function () {
+        this.classList.toggle("active")
+    })
+</script>
+
+</html>
